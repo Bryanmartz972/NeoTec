@@ -18,10 +18,6 @@ class Validators {
         return preg_match("/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,32}$/", $valor) && true;
     }
 
-    static public function MatchesRegex($regex, $valor) {
-        return preg_match($regex, $valor);
-    }
-
     private function __construct()
     {
         

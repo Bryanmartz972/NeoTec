@@ -1,41 +1,39 @@
-<h1>{{SITE_TITLE}}</h1>
-<img src="public/imgs/hero/1.jpg" alt="hero 1" />
+<link rel="stylesheet" href="style.css"> 
 
-<ul>
-  {{foreach atomicArray}}
-    <li>{{this}}</li>
-  {{endfor atomicArray}}
-</ul>
-<table>
-  <tr>
-    <th>Codigo</th>
-    <th>Descripcion</th>
-    <th>Datos de Raiz</th>
-  </tr>
-  {{foreach Fechas}}
-  <tr>
-    <td>{{id}}</td>
-    <td>{{desc}}</td>
-    <td>
-      <select name="" id="">
-        {{foreach ~atomicArray}}
-          <option value="{{this}}">{{this}}</option>
-          {{endfor ~atomicArray}}
-      </select>
-    </td>
-  </tr>
-  {{endfor Fechas}}
-</table>
+<section >
+ 
+<div class="container"> 
+    <div class="header-content"> 
+        <a href="#"> 
+      
+        </a>
+        <h3 class="text-center text-light"> Neo</h3>
+    </div>    
+</div>
 
-<hr/>
-{{if estaAutorizadoVer}}
-  <h2>Esto solo se ve si esta autorizado</h2>
-{{endif estaAutorizadoVer}}
-{{ifnot estaAutorizadoVer}}
-  <h2>Esto solo se ve si no esta autorizado</h2>
-{{endifnot estaAutorizadoVer}}
+    <div class="container">
+        <div class="content row">
+            <div class="col-md-6 left"> 
+                <h2 class="primary-color center">Misión</h2>
+                <p class="text-justify">Lorem Ipsum</p>
+                <br>
+                <h2 class="primary-color center">Visión</h2> 
+                <p class="text-justify">Lorem Ipsum</p>
+            </div>
+        <div class="col-md-6 right">
+          
+        </div>
+        </div>
+    </div>
+    <div class="quote">
+  
+    </div>
 
-<hr>
-{{with UserData}}
-  Usuario: ({{codigo}}) {{descripcion}}
-{{endwith UserData}}
+   
+    <div class="container"> 
+    <div class="header-content"> 
+        <h3 class="text-center-l">Lorem Ipsum</h3>
+    </div>    
+</div>
+
+</section>
