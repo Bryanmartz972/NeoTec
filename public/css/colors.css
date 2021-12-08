@@ -4,11 +4,11 @@
     --primary_bg300: #777;
     --secondary_text: #333;
     --secondary_bg: #fff;
-    --seconady_bg300: #AAA;
+    --seconady_bg300: rgb(182, 145, 145);
     --primary_action_bg: #2b8251;
     --primary_action_tx: #fff;
-    --secondary_action_bg: #2b5c82;
-    --secondary_action_txt: #fff;
+    --secondary_action_bg: #2da89c;
+    --secondary_action_txt: rgb(194, 79, 79);
     --alert: #c21010;
     --warning: #bb980d;
     --info: #3236ae;
