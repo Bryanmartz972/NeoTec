@@ -39,28 +39,7 @@ class productoclient extends PublicController{
           }else{
             echo '<script>alert("Se loco a la carretilla")</script>';
           }
-/*
-           if($estado==null){
-               $Cart=\Dao\carrito::AddCart();
-               $Detail=\Dao\carrito::AddCartDetail(
-                   $registros["codigo_producto"]=$data["codigo_producto"],
-                   $registros["cantidad"]=$_POST["cantidad"],
-                   $registros["precio"]=$_POST["precio"]
-               );
-               if($Cart && $Detail){
-                echo '<script>alert("Se Inserto a la carretilla")</script>';
-            }
 
-           } else{
-            $Detail=\Dao\carrito::AddCartDetail(
-                $registros["codigo_producto"]=isset($_POST["codigo_producto"])?$_POST["codigo_producto"]:0,
-                $registros["cantidad"]=isset($_POST["cantidad"])?$_POST["cantidad"]:0,
-                $registros["precio"]=isset($_POST["precio"])?$_POST["precio"]:0
-            );
-            if($Detail){
-                echo '<script>alert("Se Inserto a la carretilla")</script>';
-            }
-           }*/
            
               
 

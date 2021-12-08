@@ -92,11 +92,7 @@ class Security extends \Dao\Table
     
     static private function _saltPassword($password)
     {
-        /*if ($salt % 2 == 0) {
-            return $password . $salt;
-        }
-        return $salt . $password
-        */
+      
         return hash_hmac(
             "sha256",
             $password,

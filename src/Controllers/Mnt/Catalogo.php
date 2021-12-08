@@ -2,8 +2,9 @@
     namespace Controllers\Mnt;
 
 use Controllers\PublicController;
-$pruebita=0;
+
 class Catalogo extends PublicController{
+    private $txtCantidad = null;
     public function run():void{
         $data=array();
       
@@ -46,8 +47,17 @@ class Catalogo extends PublicController{
         $data["cantidad"]=1;
         $data["precio"]="";
         $data["cantidad_stock"]="";
+        
 
         if(isset($_POST["btnComprar"])){
+            $this->txtCantidad = $_POST["cantidad"];
+            if (\Utilities\Validators::IsEmpty($this->txtCantidad))
+            {
+                \Utilities\Site::redirectToWithMsg(
+                    "index.php?page=mnt_catalogo&mode=1",
+                    "Ingrese una cantidad"
+                );
+            }
             $data["codigo_producto"]=$_POST["codigo_producto"];
             $data["cantidad"]=isset($_POST["cantidad"])?$_POST["cantidad"]:0;
             $data["precio"]=$_POST["precio"];

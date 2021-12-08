@@ -30,11 +30,6 @@ class Index extends PublicController
     public function run() :void
     {
         \Utilities\Site::addLink("public/css/style.css");
-        /*
-        1. Conseguir de BD los eegistros de Heroes activos
-        2. Inyectarlo en un arreglo de vista
-        3. Mostrar los heros panels en la vista
-        */
         $viewData= array();
         $viewData["page"] = $this->toString();
        
