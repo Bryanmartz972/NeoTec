@@ -20,13 +20,12 @@
             return self::obtenerUnRegistro($query,$parameters);
         }
 
-       public static function AddProduct($nombre_producto, $descripcion_producto, $precio, $cantidad_stock, $codigo_tipo_producto, $codigo_categorias, $uri_img){
+       public static function AddProduct($nombre_producto, $descripcion_producto, $precio, $cantidad_stock,$codigo_categorias, $uri_img){
             $query="INSERT INTO `productos`
             (`nombre_producto`,
             `descripcion_producto`,
             `precio`,
             `cantidad_stock`,
-            `codigo_tipo_producto`,
             `codigo_categoria`,
             `uri_img`)
             VALUES
@@ -34,7 +33,6 @@
             :descripcion_producto,
             :precio,
             :cantidad_stock,
-            :codigo_tipo_producto,
             :codigo_categoria,
             :uri_img);";
 
@@ -43,7 +41,6 @@
                 "descripcion_producto"=>$descripcion_producto,
                 "precio"=>$precio, 
                 "cantidad_stock"=>$cantidad_stock,
-                "codigo_tipo_producto"=>$codigo_tipo_producto,
                 "codigo_categoria"=>$codigo_categorias,
                 "uri_img"=>$uri_img
             );
@@ -51,14 +48,13 @@
             return self::executeNonQuery($query, $parameters);
        }
 
-       public static function UpdateProduct($nombre_producto, $descripcion_producto, $precio, $cantidad_stock, $codigo_tipo_producto, $codigo_categorias, $uri_img, $codigo_producto){
+       public static function UpdateProduct($nombre_producto, $descripcion_producto, $precio, $cantidad_stock,$codigo_categorias, $uri_img, $codigo_producto){
         $query="UPDATE `productos`
         SET
         `nombre_producto` = :nombre_producto,
         `descripcion_producto` = :descripcion_producto,
         `precio` = :precio,
         `cantidad_stock` = :cantidad_stock,
-        `codigo_tipo_producto` = :codigo_tipo_producto,
         `codigo_categoria` = :codigo_categoria,
         `uri_img` = :uri_img
         WHERE `codigo_producto` = :codigo_producto;";
@@ -67,7 +63,6 @@
             "descripcion_producto"=>$descripcion_producto,
             "precio"=>$precio, 
             "cantidad_stock"=>$cantidad_stock,
-            "codigo_tipo_producto"=>$codigo_tipo_producto,
             "codigo_categoria"=>$codigo_categorias,
             "uri_img"=>$uri_img,
             "codigo_producto"=>$codigo_producto

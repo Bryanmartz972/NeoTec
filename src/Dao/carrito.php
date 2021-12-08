@@ -68,7 +68,7 @@
         }
 
         public static function getAllShopChart(){
-            $query="SELECT A.codigo_carrito, A.codigo_usuario,  B.codigo_producto_c, B.cantidad, B.precio, C.nombre_producto, C.descripcion_producto, C.codigo_tipo_producto, C.codigo_categoria, C.uri_img, C.cantidad_stock , truncate((B.cantidad*B.precio),2) as subtotal FROM carrito as A
+            $query="SELECT A.codigo_carrito, A.codigo_usuario,  B.codigo_producto_c, B.cantidad, B.precio, C.nombre_producto, C.descripcion_producto, C.codigo_categoria, C.uri_img, C.cantidad_stock , truncate((B.cantidad*B.precio),2) as subtotal FROM carrito as A
             join carrito_detalle as B on B.codigo_carrito=A.codigo_carrito
             join productos as C on B.codigo_producto_c= C.codigo_producto
             where A.estado='ACT';";
