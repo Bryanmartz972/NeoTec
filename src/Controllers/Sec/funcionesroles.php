@@ -23,7 +23,7 @@ class funcionesroles extends \Controllers\PrivateController{
             if($this->isPostBack()){
                 $data["mode"]=$_POST["mode"];
                 $data["codigorol"]=$_POST["codigorol"];
-                $data["codigo_funcion"]=$_POST["codigo_funcion"];
+                $data["fncod"]=$_POST["fncod"];
                 $data["token"] = $_POST["token"];
                 $this->verificarToken();
                 if($data["token"]!=$_SESSION["permisos_xss_token"]){
@@ -38,7 +38,7 @@ class funcionesroles extends \Controllers\PrivateController{
                 }
                 if($data["mode"]!='DEL'){
                     $data["codigorol"] = $_POST["codigo_rol"];
-                    $data["codigo_funcion"] = $_POST["nombre_funcion"];
+                    $data["fncod"] = $_POST["nombre_funcion"];
                     $data["funcion_rol_estado"] = $_POST["funcion_rol_estado"];
                     $data["fecha_exp"] = $_POST["fecha_exp"].time();
                 }
@@ -47,7 +47,7 @@ class funcionesroles extends \Controllers\PrivateController{
                     case 'INS':
                             $ok=\Dao\Security\Security::insertFuncionesRoles(
                                 $data["codigorol"],
-                                $data["codigo_funcion"],
+                                $data["fncod"],
                                 $data["funcion_rol_estado"],
                                 $data["fecha_exp"]
                             );
@@ -61,7 +61,7 @@ class funcionesroles extends \Controllers\PrivateController{
                     case 'UPD':
                                 $ok=\Dao\Security\Security::UpdateFuncionesRoles(
                                     $data["codigorol"],
-                                    $data["codigo_funcion"],
+                                    $data["fncod"],
                                     $data["funcion_rol_estado"],
                                     $data["fecha_exp"]
                                 );
@@ -76,7 +76,7 @@ class funcionesroles extends \Controllers\PrivateController{
             }else{
                 $data["mode"]=$_GET["mode"];
                 $data["codigorol"]=isset($_GET["id"])?$_GET["id"]:0;
-                $data["codigo_funcion"]=isset($_GET["id2"])?$_GET["id2"]:0;
+                $data["fncod"]=isset($_GET["id2"])?$_GET["id2"]:0;
             }
 
             if($data["mode"]=='INS'){
@@ -87,7 +87,7 @@ class funcionesroles extends \Controllers\PrivateController{
             }else{
                 $data["roles"]=\Dao\Security\Security::getRoles();
                 $data["funciones"]=\Dao\Security\Security::getAllFeature();
-                $permisoItem=\Dao\Security\Security::GetByIdPermisos($data["codigorol"], $data["codigo_funcion"]);
+                $permisoItem=\Dao\Security\Security::GetByIdPermisos($data["codigorol"], $data["fncod"]);
                 if(!$permisoItem){
                     \Utilities\Site::redirectToWithMsg(
                         "index.php?page=sec_permisos",
@@ -123,5 +123,3 @@ class funcionesroles extends \Controllers\PrivateController{
       }
 
 }
-
-?>
