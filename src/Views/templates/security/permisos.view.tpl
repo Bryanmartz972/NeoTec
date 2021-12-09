@@ -15,11 +15,11 @@
     <tbody>
         {{foreach funciones}}
         <tr>
-            <td>{{codigo_funcion}}</td>
+            <td>{{fncod}}</td>
             <td>{{funcion_descripcion}}</td>
             <td>{{funcion_estado}}</td>
-            <td>{{funcion_typ}}</td>
-            <td><a href="index.php?page=mnt_categoria&mode=UPD&id={{codigo_funcion}}"><i class="far fa-edit"></i></a></td>
+            <td>{{fntyp}}</td>
+            <td><a href="index.php?page=mnt_categoria&mode=UPD&id={{fncod}}"><i class="far fa-edit"></i></a></td>
        </tr>
        {{endfor funciones}}
     </tbody>
@@ -40,11 +40,11 @@
         {{foreach funciones_roles}}
         <tr>    
             <td>{{codigorol}}</td>
-            <td>{{codigo_funcion}}</td>
+            <td>{{fncod}}</td>
             <td>{{funcion_rol_estado}}</td>
             <td>{{fecha_exp}}</td>
             <td>
-                   <a href="index.php?page=Sec_funcionesroles&mode=UPD&id={{codigorol}}&id2={{codigo_funcion}}"><i class="far fa-edit"></i></a>
+                   <a href="index.php?page=Sec_funcionesroles&mode=UPD&id={{codigorol}}&id2={{fncod}}"><i class="far fa-edit"></i></a>
             </td>
         </tr>
         {{endfor funciones_roles}}

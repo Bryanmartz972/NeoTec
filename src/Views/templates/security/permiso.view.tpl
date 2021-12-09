@@ -13,10 +13,10 @@
             <input type="hidden" value="{{mode}}" name="mode">
         </div>
          <div class="m-5">
-           <label for="codigo_funcion" class="form-label">Código Rol</label>
-            <select name="codigo_funcion" id="codigo_funcion" class="form-select">
+           <label for="fncod" class="form-label">Código Rol</label>
+            <select name="fncod" id="fncod" class="form-select">
                 {{foreach funciones}}
-                <option value="{{codigo_funcion}}" >{{codigo_funcion}}</option>
+                <option value="{{fncod}}" >{{fncod}}</option>
                 {{endfor funciones}}
             </select>
             </div>

@@ -1,8 +1,9 @@
 <?php
+
 namespace Dao\Security;
 
 if (version_compare(phpversion(), '7.4.0', '<')) {
-        define('PASSWORD_ALGORITHM', 1);  //BCRYPT
+    define('PASSWORD_ALGORITHM', 1);  //BCRYPT
 } else {
     define('PASSWORD_ALGORITHM', '2y');  //BCRYPT
 }
@@ -43,14 +44,14 @@ class Security extends \Dao\Table
         unset($newUser["fecha_creacion"]);
         unset($newUser["password_lastchange"]);
 
-        $newUser["codigo_usuario"] = substr(uniqid(),0, -3);
-        $newUser["nombre_usuario"] = ["nombre_usuario"] ;
+        $newUser["codigo_usuario"] = substr(uniqid(), 0, -3);
+        $newUser["nombre_usuario"] = ["nombre_usuario"];
         $newUser["correo_electronico"] = $email;
-        $newUser["usuarioactcod"] = hash("sha256", $email.time());
+        $newUser["usuarioactcod"] = hash("sha256", $email . time());
         $newUser["password"] = $hashedPassword;
         $newUser["estado"] = Estados::ACTIVO;
         $newUser["password_estado"] = Estados::ACTIVO;
-        $newUser["password_fexpirar"] = date('Y-m-d', time() + 7776000);  
+        $newUser["password_fexpirar"] = date('Y-m-d', time() + 7776000);
         $newUser["tipo_usuario"] = UsuarioTipo::PUBLICO;
 
         $sqlIns = "INSERT INTO `usuarios`
@@ -79,17 +80,16 @@ class Security extends \Dao\Table
         now());";
 
         return self::executeNonQuery($sqlIns, $newUser);
-
     }
 
     static public function getUsuarioByEmail($email)
     {
         $sqlstr = "SELECT * from `usuarios` where `correo_electronico` = :correo_electronico;";
-        $params = array("correo_electronico"=>$email);
+        $params = array("correo_electronico" => $email);
 
         return self::obtenerUnRegistro($sqlstr, $params);
     }
-    
+
     static private function _saltPassword($password)
     {
         /*if ($salt % 2 == 0) {
@@ -134,83 +134,85 @@ class Security extends \Dao\Table
             "password_lastchange"     => "",
         );
     }
-    static public function insertFuncionesRoles($codigorol, $codigo_funcion, $funcion_rol_estado, $fecha_exp){
-        $query="INSERT INTO `funciones_roles`
+    static public function insertFuncionesRoles($codigorol, $fncod, $funcion_rol_estado, $fecha_exp)
+    {
+        $query = "INSERT INTO `funciones_roles`
         (`codigorol`,
-        `codigo_funcion`,
+        `fncod`,
         `funcion_rol_estado`,
         `fecha_exp`)
         VALUES
         (
         :codigorol,
-        :codigo_funcion,
+        :fncod,
         :funcion_rol_estado,
         :fecha_exp);";
-        $parameters=array(
-            "codigorol"=>$codigorol,
-            "codigo_funcion"=>$codigo_funcion,
-            "funcion_rol_estado"=>$funcion_rol_estado,
-            "fecha_exp"=>$fecha_exp
+        $parameters = array(
+            "codigorol" => $codigorol,
+            "fncod" => $fncod,
+            "funcion_rol_estado" => $funcion_rol_estado,
+            "fecha_exp" => $fecha_exp
         );
 
         return self::executeNonQuery($query, $parameters);
     }
-    static public function UpdateFuncionesRoles($codigorol, $codigo_funcion, $funcion_rol_estado, $fecha_exp){
-        $query="UPDATE `funciones_roles`
+    static public function UpdateFuncionesRoles($codigorol, $fncod, $funcion_rol_estado, $fecha_exp)
+    {
+        $query = "UPDATE `funciones_roles`
         SET
         `funcion_rol_estado` =:funcion_rol_estado,
         `fecha_exp` =:fecha_exp
-        WHERE `codigorol` =:codigorol AND `codigo_funcion` =:codigo_funcion;";
-        $parameters=array(
-            "funcion_rol_estado"=>$funcion_rol_estado,
-            "fecha_exp"=>$fecha_exp,
-            "codigorol"=>$codigorol,
-            "codigo_funcion"=>$codigo_funcion
+        WHERE `codigorol` =:codigorol AND `fncod` =:fncod;";
+        $parameters = array(
+            "funcion_rol_estado" => $funcion_rol_estado,
+            "fecha_exp" => $fecha_exp,
+            "codigorol" => $codigorol,
+            "fncod" => $fncod
         );
-        return self::executeNonQuery($query, $parameters);    
-}
+        return self::executeNonQuery($query, $parameters);
+    }
 
-static public function GetByIdPermisos($codigorol, $codigo_funcion){
-    $query="SELECT * from funciones_roles where codigorol=:codigorol and codigo_funcion=:codigo_funcion";
-    $parameters=array(
-        "codigorol"=>$codigorol,
-        "codigo_funcion"=>$codigo_funcion
-    );
-    return self::obtenerUnRegistro($query, $parameters);
-    
-}
+    static public function GetByIdPermisos($codigorol, $fncod)
+    {
+        $query = "SELECT * from funciones_roles where codigorol=:codigorol and fncod=:fncod";
+        $parameters = array(
+            "codigorol" => $codigorol,
+            "fncod" => $fncod
+        );
+        return self::obtenerUnRegistro($query, $parameters);
+    }
 
     static public function getAllFeature()
     {
         $sqlstr = "SELECT * from funciones;";
-        
+
         return  self::obtenerRegistros($sqlstr, array());
     }
     static public function getAllFuncionesRoles()
     {
         $sqlstr = "SELECT * from funciones_roles;";
-        
+
         return  self::obtenerRegistros($sqlstr, array());
     }
     static public function getFeature($fncod)
     {
-        $sqlstr = "SELECT * from funciones where codigo_funcion=:codigo_funcion;";
-        $featuresList = self::obtenerRegistros($sqlstr, array("codigo_funcion"=>$fncod));
+        $sqlstr = "SELECT * from funciones where fncod=:fncod;";
+        $featuresList = self::obtenerRegistros($sqlstr, array("fncod" => $fncod));
         return count($featuresList) > 0;
     }
 
-    static public function addNewFeature($fncod, $fndsc, $fnest, $fntyp )
+    static public function addNewFeature($fncod, $fndsc, $fnest, $fntyp)
     {
-        $sqlins = "INSERT INTO `funciones` (`codigo_funcion`, `funcion_descripcion`, `funcion_estado`, `funcion_typ`)
-            VALUES (:codigo_funcion , :funcion_descripcion , :funcion_estado , :funcion_typ );";
+        $sqlins = "INSERT INTO `funciones` (`fncod`, `fndsc`, `fnest`, `fntyp`)
+            VALUES (:fncod , :fndsc , :fnest , :fntyp );";
 
         return self::executeNonQuery(
             $sqlins,
             array(
-                "codigo_funcion" => $fncod,
-                "funcion_descripcion" => $fndsc,
-                "funcion_estado" => $fnest,
-                "funcion_typ" => $fntyp
+                "fncod" => $fncod,
+                "fndsc" => $fndsc,
+                "fnest" => $fnest,
+                "fntyp" => $fntyp
             )
         );
     }
@@ -218,13 +220,13 @@ static public function GetByIdPermisos($codigorol, $codigo_funcion){
     static public function getFeatureByUsuario($userCod, $fncod)
     {
         $sqlstr = "select * from
-        funciones_roles a inner join roles_usuarios b on a.codigorol = b.codigo_rol
-        where a.funcion_rol_estado = 'ACT' and b.rol_estado='ACT' and b.codusuario=:usercod
-        and a.codigo_funcion=:fncod limit 1;";
+        funciones_roles a inner join roles_usuarios b on a.rolescod = b.rolescod
+        where a.rolescod = 'ACT' and b.roleuserest='ACT' and b.usercod=:usercod
+        and a.fncod=:fncod limit 1;";
         $resultados = self::obtenerRegistros(
             $sqlstr,
             array(
-                "usercod"=> $userCod,
+                "usercod" => $userCod,
                 "fncod" => $fncod
             )
         );
@@ -238,30 +240,32 @@ static public function GetByIdPermisos($codigorol, $codigo_funcion){
         return count($featuresList) > 0;
     }
 
-    static public function getRolById($codigo_rol){
-        $query="SELECT * from roles where codigo_rol=:codigo_rol;";
-       $parameters=array("codigo_rol" => $codigo_rol);
-       return self::obtenerUnRegistro($query, $parameters);
-
+    static public function getRolById($codigo_rol)
+    {
+        $query = "SELECT * from roles where codigo_rol=:codigo_rol;";
+        $parameters = array("codigo_rol" => $codigo_rol);
+        return self::obtenerUnRegistro($query, $parameters);
     }
-    static public function getRoles(){
+    static public function getRoles()
+    {
         $sqlstr = "SELECT * from roles ";
-        return self::obtenerRegistros($sqlstr,array());
+        return self::obtenerRegistros($sqlstr, array());
     }
-    static public function modificarRol($descripcion, $estado, $codigo_rol){
-        $sql="Update roles set descripcion_rol=:deescripcion, estado=:estado where codigo_rol=:codigo_rol";
-        $parameters=array(
-            "descripcion"=>$descripcion, 
-            "estado"=>$estado, 
-            "codigo_rol"=>$codigo_rol
+    static public function modificarRol($descripcion, $estado, $codigo_rol)
+    {
+        $sql = "Update roles set descripcion_rol=:deescripcion, estado=:estado where codigo_rol=:codigo_rol";
+        $parameters = array(
+            "descripcion" => $descripcion,
+            "estado" => $estado,
+            "codigo_rol" => $codigo_rol
         );
         return self::executeNonQuery($sql, $parameters);
-
     }
 
-    static public function DeleteRol($codigo_rol){
-        $query="DELETE FROM roles where codigo_rol=:codigo_rol";
-        $parameters=array("codigo_rol"=>$codigo_rol);
+    static public function DeleteRol($codigo_rol)
+    {
+        $query = "DELETE FROM roles where codigo_rol=:codigo_rol";
+        $parameters = array("codigo_rol" => $codigo_rol);
         return self::executeNonQuery($query, $parameters);
     }
 
@@ -301,14 +305,14 @@ static public function GetByIdPermisos($codigorol, $codigo_funcion){
         where codigo_rol=:rolescod and codusuario=:usercod;";
         return self::executeNonQuery(
             $sqldel,
-            array("rolescod"=>$rolescod, "usercod"=>$userCod)
+            array("rolescod" => $rolescod, "usercod" => $userCod)
         );
     }
 
     static public function removeFeatureFromRol($fncod, $rolescod)
     {
         $sqldel = "UPDATE funciones_roles set funcion_rol_estado='INA'
-        where codigo_funcion=:fncod and codigorol=:rolescod;";
+        where fncod=:fncod and codigorol=:rolescod;";
         return self::executeNonQuery(
             $sqldel,
             array("fncod" => $fncod, "rolescod" => $rolescod)
@@ -316,11 +320,9 @@ static public function GetByIdPermisos($codigorol, $codigo_funcion){
     }
     static public function getUnAssignedFeatures($rolescod)
     {
-        
     }
     static public function getUnAssignedRoles($userCod)
     {
-
     }
     private function __construct()
     {
@@ -329,6 +331,3 @@ static public function GetByIdPermisos($codigorol, $codigo_funcion){
     {
     }
 }
-
-
-?>
