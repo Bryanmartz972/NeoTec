@@ -1,1 +1,1 @@
-CREATE SCHEMA `nw202103` ;
+CREATE SCHEMA `neotecprueba`;

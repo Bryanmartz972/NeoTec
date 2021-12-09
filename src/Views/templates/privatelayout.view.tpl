@@ -60,7 +60,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="index.php?page=mnt_crudproductos">Productos</a></li>
             <li><a class="dropdown-item" href="index.php?page=mnt_crudcarritos">Ventas</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_TipoP">Usuarios</a></li>
+            <li><a class="dropdown-item" href="index.php?page=mnt_crudusuarios">Usuarios</a></li>
           </ul>
         </li>
         

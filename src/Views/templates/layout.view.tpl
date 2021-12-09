@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{SITE_TITLE}}</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="../../../public/css/cruds.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -43,12 +44,8 @@
             <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=1">Telefonos</a></li>
             <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=2">Computadoras</a></li>
             <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=3">Audifonos</a></li>
-            
           </ul>
         </li>
-
-        
-        
       </ul>
       <ul>
          <li class="nav-item dropdown">

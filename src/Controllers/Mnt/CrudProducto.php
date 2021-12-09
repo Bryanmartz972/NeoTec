@@ -49,6 +49,7 @@ class CrudProducto extends PublicController
             $viewData["mode"] = $_POST["mode"];
             $viewData["codigo_producto"] = $_POST["codigo_producto"] ;
             
+            $viewData["nombre_producto"] = $_POST["nombre_producto"];
             $viewData["descripcion_producto"] = $_POST["descripcion_producto"];
             $viewData["precio"] = $_POST["precio"];
             $viewData["cantidad_stock"] = $_POST["cantidad_stock"];

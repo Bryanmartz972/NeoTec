@@ -1,10 +1,10 @@
-<h1>Gestión de Productos</h1>
+<h1 class="bg-dark text-white ">Gestión de Productos</h1>
 <section class="WWFilter">
 
 </section>
 <section class="WWList">
-  <table >
-    <thead>
+  <table class="table table-dark table-striped table-bordered table-hover">
+    <thead class="thead-dark">
       <tr>
         <th>Codigo</th>
         <th>Producto</th>
@@ -14,7 +14,7 @@
         <th>Categoria</th>
         <th>
           {{if new_enabled}}
-          <button id="btnAdd">Nuevo</button>
+          <button type="button" id="btnAdd" class="btn btn-success">Nuevo</button>
           {{endif new_enabled}}
         </th>
       </tr>
@@ -30,11 +30,11 @@
         <td><a >{{codigo_categoria}}</a></td>
         <td>
           {{if ~edit_enabled}}
-          <form action="index.php" method="get">
+          <form action="index.php" method="get">  
              <input type="hidden" name="page" value="mnt_crudproducto"/>
               <input type="hidden" name="mode" value="UPD" />
               <input type="hidden" name="codigo_producto" value={{codigo_producto}} />
-              <button type="submit">Editar</button>
+              <button type="submit" class="btn btn-primary">Editar</button>
           </form>
           {{endif ~edit_enabled}}
           {{if ~delete_enabled}}
@@ -42,7 +42,7 @@
              <input type="hidden" name="page" value="mnt_crudproducto"/>
               <input type="hidden" name="mode" value="DEL" />
               <input type="hidden" name="codigo_producto" value={{codigo_producto}} />
-              <button type="submit">Eliminar</button>
+              <button type="submit" class="btn btn-danger">Eliminar</button>
           </form>
           {{endif ~delete_enabled}}
         </td>

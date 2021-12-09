@@ -8,19 +8,21 @@
       <tr>
         <th>Codigo</th>
         <th>Usuario</th>
-        <th>Fecha de creación</th>
-        <th>Fecha de expiración</th>
+        <th>Correo electronico</th>
+        <th>Fecha de creacion</th>
         <th>Estado</th>
+        <th>Estado de contraseña</th>
       </tr>
     </thead>
     <tbody>
       {{foreach items}}
       <tr>
-        <td>{{codigo_carrito}}</td>
-        <td><a >{{codigo_usuario}}</a></td>
-        <td><a >{{fechaCreado}}</a></td>
-        <td><a >{{fechaExpira}}</a></td>
+        <td>{{codigo_usuario}}</td>
+        <td><a >{{nombre_usuario}}</a></td>
+        <td><a >{{correo_electronico}}</a></td>
+        <td><a >{{fecha_creacion}}</a></td>
         <td><a >{{estado}}</a></td>
+        <td><a >{{password_estado}}</a></td>
       </tr>
       {{endfor items}}
     </tbody>
