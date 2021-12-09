@@ -214,6 +214,7 @@ class HttpClient
         } else {
             throw new HttpException($body, $statusCode, $headers);
         }
+        
     }
 
     private function deserializeHeader($header, &$key, &$value)

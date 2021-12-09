@@ -28,13 +28,10 @@ class carrito extends PublicController{
             $_SESSION["carrito_xss_token"]=$token;
             $_SESSION["carrito_xss_token_tts"]=$time;  
             if(isset($_POST["BtnDelete"])){
-                echo '<script>alert("Me pincho")</script>';
+                echo '<script>alert("Eliminado Exitosamente Del Carrito")</script>';
                 $ok=\Dao\carrito::Deleteproducto(
                     $data["codigo_producto"]=$_POST["codigo_producto_c"]
                 );
-                if($ok){
-                    echo '<script>alert("Se elimino de la carretilla")</script>';
-                }
             }
 
             $data["PAYPAL_CLIENT_ID"]= \Utilities\Context::getContextByKey("PAYPAL_CLIENT_ID");
