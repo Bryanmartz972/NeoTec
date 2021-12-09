@@ -12,6 +12,7 @@ body {
     font-size: 1em;
     margin: 0px;
     padding: 0px;
+    background-color: #2DA89C
 }
 
 header {
@@ -73,12 +74,13 @@ header ul li a:hover {
 }
 
 .WWList table tbody tr:nth-child(2n) {
-    background-color: #c4c4c4;
+    background-color: #7e4141;
 }
 
 main {
-    position: relative;
-    padding: 1em;
+    position: sticky;
+    border-top: 5em;
+    padding-top: 7em;
     min-height: calc(100vh - 154px);
 }
 
@@ -179,7 +181,7 @@ footer {
 
 .content {
     margin-top: -80px;
-    background: rgb(255, 243, 243);
+    background: rgb(175, 229, 236);
     box-shadow: 0 0 20px -6px rgba(0, 0, 0, 0.2);
 }
 
