@@ -1,4 +1,4 @@
-CREATE TABLE `usuario` (
+CREATE TABLE `usuarios` (
   `usercod` bigint(10) NOT NULL AUTO_INCREMENT,
   `useremail` varchar(80) DEFAULT NULL,
   `username` varchar(80) DEFAULT NULL,
