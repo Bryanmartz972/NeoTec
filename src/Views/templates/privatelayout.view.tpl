@@ -33,7 +33,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php?page=index">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php?page=index">Inicio</a>
         </li>
         
         <li class="nav-item">
@@ -46,9 +46,9 @@
             Productos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=1">Maquillaje</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=2">Cabello</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=3">Cuidado Personal</a></li>
+            <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=1">Celulares</a></li>
+            <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=2">Computadoras</a></li>
+            <li><a class="dropdown-item" href="index.php?page=mnt_catalogo&mode=3">Auriculares</a></li>
             
           </ul>
         </li>
@@ -58,26 +58,9 @@
             Administración
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="index.php?page=mnt_productos">Productos</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_categorias">Categorias</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_TipoP">Tipo de Productos</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_clientes">Clientes</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_empleados">Empleados</a></li>
-            
-          </ul>
-        </li>
-        
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Acceso
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <li><a class="dropdown-item" href="index.php?page=mnt_users">Usuarios</a></li>
-            <li><a class="dropdown-item" href="index.php?page=mnt_roles">Roles</a></li>
-            <li><a class="dropdown-item" href="index.php?page=sec_permisos">Permisos</a></li>
-            
+            <li><a class="dropdown-item" href="index.php?page=mnt_crudproductos">Productos</a></li>
+            <li><a class="dropdown-item" href="index.php?page=mnt_crudcarritos">Ventas</a></li>
+            <li><a class="dropdown-item" href="index.php?page=mnt_TipoP">Usuarios</a></li>
           </ul>
         </li>
         
