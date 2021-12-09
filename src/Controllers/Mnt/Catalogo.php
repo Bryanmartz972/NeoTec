@@ -90,7 +90,7 @@ class Catalogo extends PublicController{
                  
                  \Utilities\Site::redirectToWithMsg(
                     "index.php?page=mnt_carrito",
-                    "Se añadio a la carretilla exitosamente :)"
+                    "El producto fue agregado correctamente"
                 );
              }
  
@@ -103,7 +103,7 @@ class Catalogo extends PublicController{
              if($Detail){
                 \Utilities\Site::redirectToWithMsg(
                     "index.php?page=mnt_carrito",
-                    "Se añadio a la carretilla exitosamente :)"
+                    "El producto fue agregado correctamente"
                 );
              }
             }
